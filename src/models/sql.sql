@@ -1,0 +1,13 @@
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    plu VARCHAR(255) UNIQUE NOT NULL,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE stocks (
+    id SERIAL PRIMARY KEY,
+    product_id INTEGER REFERENCES products(id),
+    shop_id INTEGER NOT NULL,
+    on_shelf INTEGER NOT NULL DEFAULT 0,
+    in_order INTEGER NOT NULL DEFAULT 0
+);
