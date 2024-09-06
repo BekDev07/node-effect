@@ -1,6 +1,5 @@
 // db.js
 const { Pool } = require("pg");
-console.log(process.env.PORT);
 
 const pool = new Pool({
   connectionString: `postgresql://postgres.vxlejaiatocwtyudkxoy:${process.env.DB_PASSWORD}@aws-0-eu-central-1.pooler.supabase.com:6543/postgres`,

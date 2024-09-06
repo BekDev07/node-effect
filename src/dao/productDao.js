@@ -7,11 +7,8 @@ async function createProduct(plu, name) {
 }
 
 async function getProductsByFilters(plu, name) {
-  console.log("plu and name", plu, name);
-
   const query = "SELECT * FROM products WHERE name ILIKE $1 OR plu = $2";
   const result = await pgQuery(query, [`%${name}%`, plu]);
-  console.log(result);
 
   return result;
 }
