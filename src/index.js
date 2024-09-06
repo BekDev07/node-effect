@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("express-async-errors");
 const express = require("express");
 const productRoutes = require("./routes/productRoutes");
 const stockRoutes = require("./routes/stockRoutes");
