@@ -1,6 +1,5 @@
 const stockDao = require("../dao/stockDao");
 
-// Create a new stock entry
 const createStockController = async (req, res) => {
   const { product_id, shop_id, quantity_on_shelf, quantity_in_order } =
     req.body;
@@ -25,7 +24,6 @@ const createStockController = async (req, res) => {
   }
 };
 
-// Update stock for increasing or decreasing
 const updateStockController = async (req, res) => {
   const { product_id, shop_id, amount, action } = req.body; // action: 'increase' or 'decrease'
 
@@ -62,7 +60,6 @@ const updateStockController = async (req, res) => {
   }
 };
 
-// Get stock by filters (shop_id, plu, etc.)
 const getStockByFiltersController = async (req, res) => {
   const {
     plu,

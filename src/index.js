@@ -13,7 +13,6 @@ app.use("/api/v1", productRoutes);
 app.use("/api/v1", stockRoutes);
 app.use("*", errorHandlerMiddleware);
 
-// Initialize the database connection and handle startup logic
 (async () => {
   try {
     await testConnection(); // Test the database connection

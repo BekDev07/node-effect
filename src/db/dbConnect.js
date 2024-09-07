@@ -20,11 +20,11 @@ const pgQuery = async (query, params = []) => {
 
 const testConnection = async () => {
   try {
-    await pool.query("SELECT NOW()"); // Simple query to test the connection
+    await pool.query("SELECT NOW()");
     console.log("Database connected successfully");
   } catch (err) {
     console.error("Error connecting to the database", err.stack);
-    process.exit(1); // Exit the process if the connection fails
+    process.exit(1);
   }
 };
 
