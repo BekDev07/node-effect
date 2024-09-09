@@ -1,4 +1,5 @@
 const stockDao = require("../dao/stockDao");
+const { logAction } = require("../utils/integrate");
 
 const createStockController = async (req, res) => {
   const { product_id, shop_id, quantity_on_shelf, quantity_in_order } =
@@ -17,6 +18,13 @@ const createStockController = async (req, res) => {
       quantity_on_shelf,
       quantity_in_order,
     });
+
+    await logAction(
+      product_id,
+      shop_id,
+      "create_stock",
+      "Stock created successfully"
+    );
 
     res.status(201).json(newStock);
   } catch (error) {
@@ -51,7 +59,12 @@ const updateStockController = async (req, res) => {
     } else {
       return res.status(400).json({ error: "Invalid action specified" });
     }
-
+    await logAction(
+      product_id,
+      shop_id,
+      "update_stock",
+      "Stock updated successfully"
+    );
     res.status(200).json(updatedStock);
   } catch (error) {
     console.log(error);

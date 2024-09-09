@@ -1,5 +1,6 @@
 const productDao = require("../dao/productDao");
 const { StatusCodes } = require("http-status-codes");
+const { logAction } = require("../utils/integrate");
 
 const createProductController = async (req, res) => {
   const { plu, name } = req.body;
@@ -24,6 +25,7 @@ const createProductController = async (req, res) => {
   }
 
   const newProduct = await productDao.createProduct(plu, name);
+
   res.status(201).json(newProduct);
 };
 const getProductsByFiltersController = async (req, res) => {
