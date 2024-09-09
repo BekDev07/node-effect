@@ -1,6 +1,6 @@
 const productDao = require("../dao/productDao");
 const { StatusCodes } = require("http-status-codes");
-const { logAction } = require("../utils/integrate");
+// const { logAction } = require("../utils/integrate");
 
 const createProductController = async (req, res) => {
   const { plu, name } = req.body;

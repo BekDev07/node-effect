@@ -59,12 +59,14 @@ const updateStockController = async (req, res) => {
     } else {
       return res.status(400).json({ error: "Invalid action specified" });
     }
-    await logAction(
+    const logging = await logAction(
       product_id,
       shop_id,
       "update_stock",
       "Stock updated successfully"
     );
+    console.log(logging);
+
     res.status(200).json(updatedStock);
   } catch (error) {
     console.log(error);
